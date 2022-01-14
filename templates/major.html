@@ -6,8 +6,40 @@
 
     <style>
 
+        :root {
+            --primary: #04AA6D;
+        }
+
         * {
             font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .heading {
+            display: flex;
+            flex-flow: row wrap;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-btn-link {
+            text-decoration: none;
+            color: var(--primary);
+            padding: .5rem .5rem;
+            background-color: white;
+            border: thin solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .nav-btn-link:hover {
+            background-color: var(--primary);
+            color: white;
         }
 
         .content {
@@ -48,42 +80,43 @@
 
 <body>
     
-    <h1>{{major}}</h1>
+    <div class="heading">
 
-    <div class="content">
+        <h1>{{major}}</h1>
 
-
-        <div class="section">
-
-            <table>
-
-                <tr>
-                    <th>Name</th>
-                    <th>Major</th>
-                    <th>Year</th>
-                </tr>
-
-                {% for member in members %}
-
-                <tr>
-
-                    <td>{{member["Name"]}}</td>
-
-                    <td>{{member["Major"]}}</td>
-
-                    <td>{{member["Year"]}}</td>
-
-                </tr>
-
-                {% endfor %}
-
-            </table>
-
-        </div>
-
-        <a href="/">Go Back</a>
+        <a href="/" class="nav-btn-link">Go Back</a>
 
     </div>
+    
+    <div class="content">
+
+        <table>
+
+            <tr>
+                <th>Name</th>
+                <th>Major</th>
+                <th>Year</th>
+            </tr>
+
+            {% for member in members %}
+
+            <tr>
+
+                <td>{{member["Name"]}}</td>
+
+                <td>{{member["Major"]}}</td>
+
+                <td>{{member["Year"]}}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+
+    </div>
+
 
 
 </body>

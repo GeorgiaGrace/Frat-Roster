@@ -6,10 +6,56 @@
 
     <style>
 
-        * {
-            font-family: Arial, Helvetica, sans-serif;
+        :root {
+            --primary: #047eaa;
         }
 
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .content {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-flow: row wrap;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            border: thin solid var(--primary);
+            color: black;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary);
+        }
+
+        .nav-btn-link {
+            text-decoration: none;
+            color: var(--primary);
+            padding: .5rem .5rem;
+        }
+
+        .nav-btn-link:hover {
+            color: white;
+        }
 
         table {
             border-collapse: collapse;
@@ -45,33 +91,37 @@
     
     <div class="content">
 
-        <div class="section">
+        <ul>
+            {% for major in majors %}
+            <li class="nav-btn">
+                <a href="/{{major}}" class="nav-btn-link">{{major}}</a>
+            </li>
+            {% endfor %}
+        </ul>
 
-            <table>
+        <table>
 
-                <tr>
-                    <th>Name</th>
-                    <th>Major</th>
-                    <th>Year</th>
-                </tr>
+            <tr>
+                <th>Name</th>
+                <th>Major</th>
+                <th>Year</th>
+            </tr>
 
-                {% for member in members %}
+            {% for member in members %}
 
-                <tr>
-                    <td>{{member["Name"]}}</td>
-                    <td>
-                        <a href="/{{member['Major']}}">
-                            {{member["Major"]}}
-                        </a>
-                    </td>
-                    <td>{{member["Year"]}}</td>
-                </tr>
+            <tr>
+                <td>{{member["Name"]}}</td>
+                <td>
+                    <a href="/{{member['Major']}}">
+                        {{member["Major"]}}
+                    </a>
+                </td>
+                <td>{{member["Year"]}}</td>
+            </tr>
 
-                {% endfor %}
+            {% endfor %}
 
-            </table>
-
-        </div>
+        </table>
 
     </div>
 

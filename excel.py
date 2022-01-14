@@ -2,7 +2,6 @@
    Created: January 12 2022
    Function: Will read an Excel and take an inputted major and output brothers in inputted major"""
 
-
 import pandas as pd
 
 path = 'Alpha Sig Brothers Majors.xlsx'
@@ -42,3 +41,20 @@ def output(info, major):
 # data = createlists(pathname)
 # info = majorfinder(major)
 # output(info)
+
+def getMajors():
+
+    majors = []
+
+    studentList = createlists()
+
+    for i in range( 0 , len(studentList) ):
+
+        studentMajor = studentList[i]["Major"]
+
+        if studentMajor not in majors:
+            majors.append(studentMajor)
+
+    majors.sort()
+
+    return majors

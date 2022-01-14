@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from excel import createlists, majorfinder
+from excel import createlists, majorfinder, getMajors
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def home():
 
     membersSorted = sorted( memberArray, key = lambda i : i["Name"])
 
-    return render_template('index.html', members=membersSorted)
+    return render_template('index.html', members=membersSorted, majors=getMajors())
 
 @app.route('/<major>')
 def major(major):

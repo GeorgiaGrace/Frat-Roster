@@ -5,6 +5,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+
+    return render_template('home.html')
+
+@app.route("/majors")
+def majors():
     members = createlists()
 
     memberArray = []
@@ -15,7 +20,21 @@ def home():
 
     membersSorted = sorted( memberArray, key = lambda i : i["Name"])
 
-    return render_template('index.html', members=membersSorted, majors=getMajors())
+    return render_template('majors.html', members=membersSorted, majors=getMajors())
+
+@app.route("/brothers")
+def brothers():
+    members = createlists()
+
+    memberArray = []
+
+    for i in range( 0 , len(members) ):
+
+        memberArray.append(members[i])
+
+    membersSorted = sorted( memberArray, key = lambda i : i["Name"])
+
+    return render_template('brothers.html', members=membersSorted)
 
 @app.route('/<major>')
 def major(major):

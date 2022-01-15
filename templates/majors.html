@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+
+{% block title %}
+Majors
+{% endblock %}
+
+{% block head %}
+
+    {{ super() }}
+
+    <style>
+
+        .section {
+            width: 100%;
+            max-width: var(--max-width);
+        }
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="section">
+
+        <ul>
+            {% for major in majors %}
+            <li class="nav-btn">
+                <a href="/{{major}}" class="nav-btn-link">{{major}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+{% endblock %}

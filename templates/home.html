@@ -1,0 +1,102 @@
+{% extends "template.html" %}
+
+{% block title %}
+Alpha Simga Phi
+{% endblock %}
+
+{% block head %}
+
+    {{ super() }}
+
+    <style>
+
+        .section {
+            width: 100%;
+            max-width: var(--max-width);
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-flow: column wrap;
+            gap: 1rem;
+            
+        }
+
+        .nav-btn {
+            border: thin solid var(--primary);
+            color: black;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary);
+        }
+
+        .nav-btn-link {
+            text-decoration: none;
+            color: var(--primary);
+            padding: .5rem 3rem;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .nav-btn-link:hover {
+            color: white;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table td, table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        table tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #047eaa;
+            color: white;
+        }
+
+
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="section">
+
+        <ul>
+            <li class="nav-btn">
+                <a href="/majors" class="nav-btn-link">Majors</a>
+            </li>
+            <li class="nav-btn">
+                <a href="/brothers" class="nav-btn-link">Brothers</a>
+            </li>
+            <!-- <li class="nav-btn">
+                <a href="/years" class="nav-btn-link">Year</a>
+            </li> -->
+        </ul>
+
+    </div>
+
+{% endblock %}
